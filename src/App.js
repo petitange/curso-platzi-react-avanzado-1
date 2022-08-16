@@ -9,7 +9,7 @@ export const App = () => (
     <Logo />
     <GlobalStyle />
     <ListOfCategories />
-    <ListOfPhotoCards />
+    <ListOfPhotoCards categoryId={2} />
   </div>
-  
+
 )

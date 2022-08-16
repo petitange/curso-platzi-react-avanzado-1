@@ -1,20 +1,32 @@
-import React from 'react'
+import React, { useEffect, useRef, useState, Fragment } from 'react'
 import { Button, Img, ImgWrapper } from './styles'
-import { MdFavoriteBorder } from 'react-icons/md'
+import { MdFavoriteBorder, MdFavorite } from 'react-icons/md'
+import { useLocalStorage } from '../../hooks/useLocalStorage'
+import { useNearScreen } from '../../hooks/useNearScreen'
 
 const DEFAULT_IMAGE = 'https://res.cloudinary.com/midudev/image/upload/w_150/v1555671700/category_dogs.jpg'
 
 export const PhotoCard = ({ id, likes = 0, src = DEFAULT_IMAGE }) => {
-    return (
-        <article>
-            <a href={`/detail/${id}`}>
-                <ImgWrapper>
-                    <Img src={src} />
-                </ImgWrapper>
-            </a>
-            <Button>
-                <MdFavoriteBorder size='32px' />{likes} likes!
-            </Button>
-        </article>
-    )
+  const [show, element] = useNearScreen()
+  const key = `like-${id}`
+  const [liked, setLiked] = useLocalStorage(key, false)
+  const Icon = liked ? MdFavorite : MdFavoriteBorder
+
+  return (
+    <article ref={element}>
+      {
+                show && <>
+                  <a href={`/detail/${id}`}>
+                    <ImgWrapper>
+                      <Img src={src} />
+                    </ImgWrapper>
+                  </a>
+
+                  <Button onClick={() => setLiked(!liked)}>
+                    <Icon size='32px' /> {likes} likes!
+                  </Button>
+                        </>
+            }
+    </article>
+  )
 }

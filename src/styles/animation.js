@@ -12,6 +12,6 @@ const fadeInKeyframes = keyframes`
  }
 `
 
-export const fadeIn = ({time='1s', type='ease'}={})=>{
-    return css`animation: ${time} ${fadeInKeyframes} ${type};`
+export const fadeIn = ({ time = '1s', type = 'ease' } = {}) => {
+  return css`animation: ${time} ${fadeInKeyframes} ${type};`
 }
