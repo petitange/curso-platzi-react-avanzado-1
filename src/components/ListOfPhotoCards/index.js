@@ -9,10 +9,10 @@ export const ListOfPhotoCards = ({ categoryId }) => {
   })
 
   if (error) {
-    return <h2>Internal Server Error</h2>;
+    return <h2>Internal Server Error</h2>
   }
   if (loading) {
-    return <h2>Loading...</h2>;
+    return <h2>Loading...</h2>
   }
 
   return (
@@ -21,5 +21,5 @@ export const ListOfPhotoCards = ({ categoryId }) => {
         <PhotoCard key={photo.id} {...photo} />
       ))}
     </ul>
-  );
-};
+  )
+}

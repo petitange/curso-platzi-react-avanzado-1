@@ -15,11 +15,11 @@ export const App = () => {
       <Logo />
       {
         detailId
-          ? <PhotoCardWithQuery id={ detailId } />
-          : <Fragment>
-              <ListOfCategories />
-              <ListOfPhotoCards categoryId={2} />
-            </Fragment>
+          ? <PhotoCardWithQuery id={detailId} />
+          : <>
+            <ListOfCategories />
+            <ListOfPhotoCards categoryId={2} />
+          </>
       }
     </div>
   )

@@ -25,7 +25,7 @@ const renderProp = ({ loading, error, data }) => {
   return (
     <PhotoCard {...data.photo} />
   )
-} 
+}
 
 export const PhotoCardWithQuery = ({ id }) => {
   const { loading, error, data } = useQuery(GET_SINGLE_PHOTO, {
