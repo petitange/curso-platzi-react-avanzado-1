@@ -4,6 +4,7 @@ import { useLocalStorage } from '../../hooks/useLocalStorage'
 import { useNearScreen } from '../../hooks/useNearScreen'
 import { useMutationToogleLike } from '../../hooks/useMutationToogleLike'
 import { FavButton } from '../FavButton'
+import { Link } from 'react-router-dom'
 const DEFAULT_IMAGE = 'https://res.cloudinary.com/midudev/image/upload/w_150/v1555671700/category_dogs.jpg'
 
 export const PhotoCard = ({ id, likes = 0, src = DEFAULT_IMAGE }) => {
@@ -24,11 +25,11 @@ export const PhotoCard = ({ id, likes = 0, src = DEFAULT_IMAGE }) => {
     <article ref={element}>
       {
                 show && <>
-                  <a href={`/?detail=${id}`}>
+                  <Link to={`/detail/${id}`}>
                     <ImgWrapper>
                       <Img src={src} />
                     </ImgWrapper>
-                  </a>
+                  </Link>
                   <FavButton liked={liked} likes={likes} onClick={handleFavClick} />
                 </>
             }
