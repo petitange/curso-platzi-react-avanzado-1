@@ -1,10 +1,10 @@
 import React from 'react'
 import { PhotoCard } from '../PhotoCard'
 import { useQuery } from '@apollo/client'
-import { whitPhotos } from '../../hoc/withPhotos'
+import { GET_PHOTOS } from '../../hoc/withPhotos'
 
 export const ListOfPhotoCards = ({ categoryId }) => {
-  const { loading, error, data } = useQuery(whitPhotos, {
+  const { loading, error, data } = useQuery(GET_PHOTOS, {
     variables: { categoryId }
   })
 
