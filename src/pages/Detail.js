@@ -7,4 +7,3 @@ export const Detail = () => {
   console.log(params)
   return <PhotoCardWithQuery id={params.detailId} />
 }
- 
